@@ -26,6 +26,6 @@ plt.plot(years, linearRegression.predict(years), color='blue')
 plt.xlabel('Years')
 plt.ylabel('Cases')
 plt.xticks([2018])
-plt.xticks([int(cases_in_2018)])
+plt.yticks([int(cases_in_2018)])
 
 plt.show()

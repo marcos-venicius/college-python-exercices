@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            min-width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            width: min(400px, 90%);
+        }
+
+        input {
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        ul {
+            list-type: none;
+            width: min(400px, 90%);
+            margin-top: 2rem;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            width: 100%;
+        }
+
+        li:not(:first-child) {
+            margin-top: 1rem;
+        }
+
+        a {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form method="post" action="/todos">
+    <input autofocus placeholder="title" name="todo" type="text">
+</form>
+<ul>
+{%for i in range(0, todos_len)%}
+<li data-id="{{todos[i].id}}">
+    {{todos[i].name}}
+    <a href="/todos/{{todos[i].id}}">delete</a>
+</li>
+{%endfor%}
+</ul>
+</body>
+</html>
